@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Coffee, Minus, Plus, Check } from "lucide-react";
+import { Minus, Plus, Check } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import PeachLayout from "../../components/layouts/PeachLayout";
 import Breadcrumb from "../../components/common/Breadcrumb";
@@ -77,12 +77,7 @@ export default function CoffeeDetailPage() {
     }
   };
 
-  // Total price including quantity and subscription discount
-  const totalPrice = (
-    getPriceBySize() *
-    quantity *
-    (purchaseType === "subscribe" ? 0.9 : 1)
-  ).toFixed(2);
+ 
 
   // Add product to cart
   const handleAddToCart = () => {
@@ -181,7 +176,7 @@ export default function CoffeeDetailPage() {
                 <div className="rounded-lg overflow-hidden">
                   <img
                     src={getMainImage()}
-                    alt={product.name}
+                    alt="product"
                     className="w-full h-auto max-h-[260px] sm:max-h-[360px] lg:max-h-[460px] object-cover"
                   />
                 </div>
@@ -217,12 +212,14 @@ export default function CoffeeDetailPage() {
                           <option value="medium">Medium: 500g (About 40cups)</option>
                           <option value="large">Large: 1kg (About 80cups)</option>
                         </select>
-                        <img
-                          src="/assets/downarrow.png"
-                          className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-2.5 md:w-3 h-2.5 md:h-3 transition-transform duration-300 pointer-events-none ${
-                            isSizeOpen ? "rotate-180" : ""
-                          }`}
-                        />
+                       <img
+  src="/assets/downarrow.png"
+  alt=""
+  className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-2.5 md:w-3 h-2.5 md:h-3 transition-transform duration-300 pointer-events-none ${
+    isSizeOpen ? "rotate-180" : ""
+  }`}
+/>
+                        
                       </div>
                     </div>
 
@@ -240,7 +237,7 @@ export default function CoffeeDetailPage() {
                               : "border-transparent bg-transparent text-dark-brown hover:border-charcoal"
                           }`}
                         >
-                             <img src="../../../assets/Whole Bean.png  " className="w-5 h-5"></img>
+                             <img src="../../../assets/Whole Bean.png  " alt ="" className="w-5 h-5"></img>
 
                           <span className="hidden sm:inline">Whole Bean</span>
                           <span className="sm:hidden">Whole</span>
@@ -368,6 +365,7 @@ export default function CoffeeDetailPage() {
                             </select>
                             <img
                               src="/assets/downarrow.png"
+                              alt=""
                               className={`absolute right-2 md:right-3 top-1/2 transform -translate-y-1/2 w-2.5 md:w-3 h-2.5 md:h-3 transition-transform duration-300 pointer-events-none ${
                                 isDeliveryOpen ? "rotate-180" : ""
                               }`}

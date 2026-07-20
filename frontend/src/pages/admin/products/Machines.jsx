@@ -1,4 +1,3 @@
-// src/pages/admin/products/Machines.jsx
 import { useEffect, useState } from "react";
 
 const API_URL = process.env.REACT_APP_API_URLL;
@@ -62,7 +61,7 @@ export default function Machines() {
     const t = setTimeout(load, 250);
     return () => clearTimeout(t);
   }, [search]);
-
+  
   function openCreate() {
     setEditing(null);
     setForm({

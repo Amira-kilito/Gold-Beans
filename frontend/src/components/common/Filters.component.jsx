@@ -82,7 +82,7 @@ export default function Filters({ coffees = [], onApply }) {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex gap-2 items-center">
-          <img src="/assets/filter.png" className="w-5 h-5" />
+          <img src="/assets/filter.png" alt="filter" className="w-5 h-5" />
           <p className="font-semibold text-sm">Filters</p>
         </div>
         <button
@@ -148,6 +148,7 @@ export default function Filters({ coffees = [], onApply }) {
           <p>Price</p>
           <img
             src="/assets/downarrow.png"
+            alt="downarrow"
             className={`w-3 h-3 transition-transform duration-300 ${
               openFilter === "price" ? "rotate-180" : ""
             }`}
@@ -203,6 +204,7 @@ function FilterSection({
         <p>{title}</p>
         <img
           src="/assets/downarrow.png"
+          alt="downarrow"
           className={`w-3 h-3 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
