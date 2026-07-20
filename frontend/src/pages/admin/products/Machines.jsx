@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useCallback } from "react";
 const API_URL = process.env.REACT_APP_API_URLL;
 
 function StockBadge({ stock }) {
@@ -37,30 +36,30 @@ export default function Machines() {
     images: [],
   });
 
-  async function load() {
-    setLoading(true);
-    try {
-      const r = await fetch(
-        `${API_URL}/api/machines?search=${encodeURIComponent(search)}&sort=${sort}`
-      );
-      const data = await r.json().catch(() => []);
-      const list = Array.isArray(data) ? data : data.machines || [];
-      setMachines(list);
-    } catch (err) {
-      console.error("Failed to load machines:", err);
-    } finally {
-      setLoading(false);
-    }
+ const load = useCallback(async () => {
+  setLoading(true);
+
+  try {
+    const r = await fetch(
+      `${API_URL}/api/machines?search=${encodeURIComponent(search)}&sort=${sort}`
+    );
+
+    const data = await r.json().catch(() => []);
+    const list = Array.isArray(data) ? data : data.machines || [];
+    setMachines(list);
+  } catch (err) {
+    console.error("Failed to load machines:", err);
+  } finally {
+    setLoading(false);
   }
-
-  useEffect(() => {
+}, [search, sort]);
+useEffect(() => {
+  const t = setTimeout(() => {
     load();
-  }, [sort]);
+  }, 250);
 
-  useEffect(() => {
-    const t = setTimeout(load, 250);
-    return () => clearTimeout(t);
-  }, [search]);
+  return () => clearTimeout(t);
+}, [load]);
   
   function openCreate() {
     setEditing(null);
