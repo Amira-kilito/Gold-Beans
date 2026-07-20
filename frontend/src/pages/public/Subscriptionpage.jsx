@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import PeachLayout from "../../components/layouts/PeachLayout";
 import Breadcrumb from "../../components/common/Breadcrumb";
-import { Coffee } from "lucide-react"; // optional if you want another icon
 import AuthGateModal from "../../components/AuthGateModal";
 import { useAuth } from "../../contexts/AuthProvider";
 import CartContext from "../../contexts/CartContext";
@@ -11,7 +10,7 @@ import CartContext from "../../contexts/CartContext";
 function BeanIcon(props) {
   return (
  <>
- <img src="assets/Whole Bean.png  " className="w-5 h-5"></img>
+ <img src="assets/Whole Bean.png  " alt="Coffee subscription" className="w-5 h-5"></img>
  </>
   );
 }

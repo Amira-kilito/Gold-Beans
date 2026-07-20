@@ -127,7 +127,7 @@ export default function HomePage() {
                 <div className="overflow-hidden rounded-t-2xl mb-4 sm:mb-5">
                   <img
                     src={coffee.image }
-                    alt={coffee.name}
+                    alt="coffee"
                     className="
                     w-full
                     h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80

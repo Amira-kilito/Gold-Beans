@@ -26,8 +26,8 @@ export default function OrderConfirmed() {
     }
   }, []);
 
-  const [order, setOrder] = useState(stateOrder || storedOrder);
-  const [me, setMe] = useState(null);
+ const [order] = useState(stateOrder || storedOrder);
+const [me, setMe] = useState(null);
 
   // Charger user connecté (pour afficher prénom/nom)
   useEffect(() => {
